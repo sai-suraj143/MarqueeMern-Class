@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .flex-container{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            border: 1px solid rgb(119, 115, 115);
+            height: 100px;
+            width: 100vw;
+        }
+        #image-container{
+            height: 50px;
+            width: 50px;
+            border: none;
+        }
+        #bg-image{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            border: 1px solid black;
+        }
+        #nav-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            border: 1px solid rgb(119, 115, 115);
+            height: 100px;
+            width: 100vw;
+        }
+        #nav1{
+            border: 1px solid black;
+            height: 50px;
+            width: 80px;
+            margin: 0px;
+        }
+        #nav2{
+            border: 1px solid black;
+            height: 50px;
+            width: 80px;
+            margin: 0px;
+        }
+        #nav3{
+            border: 1px solid black;
+            height: 50px;
+            width: 80px;
+            margin: 0px;
+        }
+        #nav4{
+            border: 1px solid black;
+            height: 50px;
+            width: 80px;
+            margin: 0px;
+        }
+        #search-container{
+            border: 1px solid black;
+
+        }
+        .main-container{
+            height: 100vh;
+            width: 100vw;
+            border: 3px solid black;
+
+        }
+        .row1{
+            height: 45vh;
+            width: 100vw;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .row2{
+            height: 45vh;
+            width: 100vw;
+            border: 1px solid black;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .box{
+            height: 400px;
+            width: 400px;
+            border: 4px solid greenyellow;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="flex-container">
+            <div id="image-container">
+                <div id="bg-image"></div>
+            </div>
+            <div id="nav-container">
+                <div id="nav1"></div>
+                <div id="nav2"></div>
+                <div id="nav3"></div>
+                <div id="nav4"></div>
+            </div>
+            <div id="search-container">
+                <input type="text" name="text" id="" placeholder="Enter-Text">
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="main-container">
+            <div class="row1">
+                <div class="box" id="box1"></div>
+                <div class="box" id="box2"                                                                                  ></div>
+                <div class="box" id="box3"></div>
+                <div class="box" id="box4"                                                                                  ></div>
+            </div>
+            <div class="row2">
+                <div class="box" id="box5                                                                                   ></div>
+                <div class="box" id="box6"></div>
+                <div class="box" id="box7                                                                                   ></div>
+                <div class="box" id="box8"></div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
