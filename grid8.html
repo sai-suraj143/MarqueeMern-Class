@@ -1,0 +1,87 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid Layout</title>
+    <style>
+    /* Main wrapper to match the outer gray background */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #d3d3d3;
+        margin: 0;
+    }
+
+    /* The Grid Container */
+    .grid-container {
+        display: grid;
+        /* Ratios approximately matching the image (e.g., center is wider and taller) */
+        grid-template-columns: repeat(auto-fit,minmax(100px,1fr));
+        grid-template-rows: repeat(3,100px);
+        /* gap: 12px; */
+        padding: 12px;
+        width: 700px;
+        height: 450px;
+        /* border: 2px solid #222; */
+        border-radius: 0px;
+        background-color: #d3d3d3; /* Same as body to blend */
+    }
+
+    /* Individual Grid Cells */
+    .cell {
+        border: 2px solid #222;
+        border-radius: 0px;
+        position: relative; /* Crucial for positioning the inner blue boxes */
+    }
+
+    /* The Small Blue Boxes via pseudo-element */
+    .cell::before {
+        content: "";
+        width: 32px;
+        height: 32px;
+        background-color: #8daed6;
+        border: 2px solid #222;
+        border-radius: 0px;
+        position: absolute;
+    }
+
+    /* --- Specific Box Positions --- */
+    
+    /* Top Row */
+    .top-left::before { top: 0; left: 0; }
+    .top-mid::before { bottom: 0%; left: 50%; transform: translate(-50%); }
+    .top-right::before { top: 0%; right: 0;  }
+
+    /* Middle Row */
+    .mid-left::before { top: 50%; left: 0; }
+    .center::before { bottom: 50%; left: 50%;  transform: translate(-50%,50%);}
+    .mid-right::before { top: 50%; right: 0; }
+
+    /* Bottom Row */
+    .bot-left::before { bottom: 0%; left: 0; }
+    .bot-mid::before { top: 0%; left: 50%; transform: translate(-50%);}
+    .bot-right::before { bottom: 0%; right: 0; }
+
+    </style>
+    </head>
+    <body>
+
+    <div class="grid-container">
+    <div class="cell top-left"></div>
+    <div class="cell top-mid"></div>
+    <div class="cell top-right"></div>
+    
+    <div class="cell mid-left"></div>
+    <div class="cell center"></div>
+    <div class="cell mid-right"></div>
+    
+    <div class="cell bot-left"></div>
+    <div class="cell bot-mid"></div>
+    <div class="cell bot-right"></div>
+    </div>
+
+    </body>
+    </html>
