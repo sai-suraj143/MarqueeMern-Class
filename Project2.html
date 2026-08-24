@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ixigo - Best Travel Website Clone (Full Page)</title>
+    <style>
+        /* CSS RESET, BRAND VARIABLES & CONFIGURATION */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f2f5f8;
+            color: #1c2025;
+            padding-bottom: 0px;
+        }
+
+        /* UTILITY CLASSES */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-margin {
+            margin-top: 45px;
+        }
+
+        .section-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .main-heading {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1c2025;
+        }
+
+        /* --- PAGE 1: INTEGRATED TOP BANNER COMPONENT --- */
+        .integrated-top-banner {
+            background: linear-gradient(to top, rgb(4, 69, 151), rgb(1, 22, 49));
+            transition: all 300ms ease-in-out;
+            padding: 10px 0;
+        }
+
+        .flex-row-center {
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+
+        .flex-col-center {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .banner-heading-box {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .banner-h4 {
+            font-size: 32px;
+            font-weight: 900;
+            color: rgb(255, 255, 255);
+        }
+
+        .banner-span {
+            font-size: 32px;
+            font-weight: 400;
+            color: rgb(255, 255, 255);
+        }
+
+        .timer-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timer-title {
+            color: rgb(255, 255, 255);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .timer-wrapper {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .ends-in-txt {
+            font-size: 14px;
+            color: rgb(255, 255, 255);
+            margin-right: 8px;
+        }
+
+        .countdown-digits-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            height: 50px;
+            width: 45px;
+        }
+
+        .timer-box h5 {
+            font-size: 18px;
+            color: #ffffff;
+            font-weight: 700;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .timer-box p {
+            font-size: 10px;
+            color: #ffffff;
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: -3px;
+        }
+
+        .flashSale_bottomBoxTimer__JFN3D {
+            position: absolute;
+            bottom: 0;
+            height: 20px;
+            width: 45px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .flashSale_topBoxTimer__7CPrn {
+            position: absolute;
+            top: 0;
+            height: 30px;
+            width: 45px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 4px 4px 0 0;
+        }
+
+        .flashSale_upperBoxLine__RHrz0 {
+            position: absolute;
+            height: 2px;
+            top: 28px;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            z-index: 11;
+        }
+
+        .banner-img {
+            width: 160px;
+            height: 160px;
+            padding: 16px;
+            object-fit: contain;
+        }
+
+        .wavy-strip {
+            width: 100%;
+            height: 8px;
+            background-image: url("https://images.ixigo.com/image/upload/bb1da9a569b99f86ec71580cca5d044e-zuwuo.png");
+            background-size: 60px 8px;
+        }
+
+        /* --- NAVIGATION BAR --- */
+        .main-navbar {
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-box .logo-img {
+            height: 38px;
+            background-color: #ec5b24;
+            color: white;
+            font-size: 24px;
+            font-weight: 800;
+            font-style: italic;
+            padding: 2px 14px;
+            border-radius: 6px;
+            display: inline-block;
+            letter-spacing: -1px;
+            text-decoration: none;
+        }
+
+        .nav-right-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: #616e7c;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-link-user {
+            border: 1px solid #dcdcdc;
+            padding: 6px 14px;
+            border-radius: 20px;
+            color: #1c2025;
+        }
+
+        .user-icon {
+            background-color: #e0f2fe;
+            color: #0284c7;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* --- CATEGORY TABS SYSTEM --- */
+        .category-tabs-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: 25px;
+        }
+
+        .tabs-left {
+            display: flex;
+            gap: 5px;
+        }
+
+        .cat-tab {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 22px;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #616e7c;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cat-tab.active {
+            color: #044cb4;
+            background: #ffffff;
+            border-radius: 12px 12px 0 0;
+            box-shadow: 0 -3px 10px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            border-bottom: none;
+            padding-bottom: 13px;
+            z-index: 2;
+        }
+
+        .cat-tab .badge {
+            position: absolute;
+            top: -5px;
+            right: 0px;
+            background-color: #a855f7;
+            color: white;
+            font-size: 9px;
+            padding: 1px 5px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .tabs-right-text {
+            font-size: 14px;
+            color: #475569;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        /* --- SEARCH PANEL --- */
+        .search-panel {
+            background-color: #ffffff;
+            border-radius: 0 12px 12px 12px;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            position: relative;
+            margin-top: -1px;
+            z-index: 1;
+        }
+
+        .trip-type-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .radio-toggle-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-toggle {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .btn-toggle.active {
+            border-color: #044cb4;
+            color: #044cb4;
+            background-color: #f0f6ff;
+        }
+
+        .best-offer-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 13px;
+            color: #16a34a;
+            font-weight: 600;
+        }
+
+        .green-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e;
+            border-radius: 50%;
+        }
+
+        .search-inputs-grid {
+            display: flex;
+            background-color: #f1f5f9;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #cbd5e1;
+        }
+
+        .input-block {
+            flex: 1;
+            padding: 12px 18px;
+            border-right: 1px solid #cbd5e1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .input-block:last-of-type {
+            border-right: none;
+            flex: 1.3;
+        }
+
+        .input-block span {
+            font-size: 11px;
+            color: #64748b;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        .input-block input {
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            width: 100%;
+        }
+
+        .btn-search-submit {
+            background-color: #ec5b24;
+            color: #ffffff;
+            border: none;
+            padding: 0 40px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+
+        .btn-search-submit:hover {
+            background-color: #df4f1a;
+        }
+
+        .special-fares-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #475569;
+        }
+
+        .fare-chip {
+            border: 1px solid #cbd5e1;
+            padding: 5px 14px;
+            border-radius: 15px;
+            background-color: #ffffff;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .cancellation-bar {
+            margin-top: 25px;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #334155;
+        }
+
+        .cancel-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .cancel-features {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            color: #64748b;
+            font-size: 12px;
+            margin-left: 15px;
+        }
+
+        .shield-gold-icon {
+            width: 16px;
+            height: 22px;
+            background-color: #d97706;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        }
+
+        /* --- DO MORE WITH IXIGO SECTION --- */
+        .features-grid {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            display: flex;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+        }
+
+        .feature-card {
+            flex: 1;
+            padding: 25px 10px;
+            text-align: center;
+            border-right: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .feature-card:last-child {
+            border-right: none;
+        }
+
+        .feature-card .mini-badge {
+            position: absolute;
+            top: 12px;
+            right: 30%;
+            font-size: 9px;
+            font-weight: bold;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        .bg-orange { background-color: #ff7a00; }
+        .bg-green { background-color: #22c55e; }
+
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px dashed #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            line-height: 1.4;
+        }
+
+        /* --- CHIPS CONTROLLER STRIP --- */
+        .filter-chips-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .chip-btn {
+            padding: 7px 16px;
+            border-radius: 20px;
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            font-size: 13px;
+            font-weight: 500;
+            color: #475569;
+            cursor: pointer;
+        }
+
+        .chip-btn.blue-active {
+            background-color: #044cb4;
+            color: #ffffff;
+            border-color: #044cb4;
+        }
+
+        .view-all-link {
+            font-size: 13px;
+            color: #ec5b24;
+            font-weight: 600;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        /* --- PAGE 2: OFFERS BLOCK DISPLAY --- */
+        .offers-display-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .promo-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .promo-card img.brand-logo {
+            height: 20px;
+            max-width: 90px;
+            object-fit: contain;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .promo-main-txt {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .promo-sub-txt {
+            font-size: 12px;
+            color: #64748b;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .promo-footer-decoration {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+        }
+
+        .card-graphic-placeholder {
+            width: 70px;
+            height: 45px;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            border-radius: 4px;
+        }
+
+        .arrow-slider-btn {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            z-index: 10;
+            font-weight: bold;
+            color: #334155;
+        }
+
+        /* --- WHY BOOK WITH IXIGO GRID --- */
+        .why-book-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .why-card {
+            border-radius: 12px;
+            padding: 20px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.01);
+        }
+
+        .why-1 { background-color: #ecf5ff; border: 1px solid #bfdbfe; }
+        .why-2 { background-color: #f3e8ff; border: 1px solid #e9d5ff; }
+        .why-3 { background-color: #fef3c7; border: 1px solid #fde68a; }
+        .why-4 { background-color: #f0fdf4; border: 1px solid #bbf7d0; }
+
+        .why-icon {
+            font-size: 28px;
+        }
+
+        .why-info h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 2px;
+        }
+
+        .why-info p {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.3;
+        }
+
+        /* --- PAGE 3: CHEAPEST FARES GRID SYSTEM --- */
+        .cheapest-fares-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .dropdown-inline-selector {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #334155;
+            cursor: pointer;
+            margin-left: 6px;
+        }
+
+        .fares-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-top: 15px;
+        }
+
+        .fare-destination-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dest-img-frame {
+            height: 120px;
+            background-color: #cbd5e1;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .dest-details-padding {
+            padding: 12px;
+        }
+
+        .dest-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .dest-state {
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 8px;
+        }
+
+        .dest-date {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .dest-pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 4px;
+        }
+
+        .price-txt {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .btn-book-action {
+            background: transparent;
+            border: 1px solid #ec5b24;
+            color: #ec5b24;
+            padding: 4px 10px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* POPULAR ROUTES PATTERN */
+        .routes-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .route-strip-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .route-thumbnail {
+            width: 45px;
+            height: 45px;
+            border-radius: 6px;
+            background-color: #e2e8f0;
+            background-size: cover;
+        }
+
+        .route-data h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #334155;
+            margin-bottom: 2px;
+        }
+
+        .route-data p {
+            font-size: 11px;
+            color: #0284c7;
+        }
+
+        .center-link-container {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .expand-view-link {
+            font-size: 13px;
+            color: #ec5b24;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* --- PAGE 4: DOMESTIC AIRLINES & DOWNLOAD --- */
+        .airlines-container-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .airline-brand-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+
+        .airline-logo-mock {
+            width: 35px;
+            height: 25px;
+            clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+        }
+
+        .airline-brand-item span {
+            font-size: 12px;
+            font-weight: 500;
+            color: #475569;
+        }
+
+        /* DIRECT APP ADVERTISEMENT BANNER */
+        .app-download-banner {
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            border-radius: 16px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-left-layout {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-orange-logo {
+            width: 70px;
+            height: 70px;
+            background-color: #ec5b24;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            color: white;
+        }
+
+        .app-bullet-info h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .app-bullet-info ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .app-bullet-info li {
+            font-size: 13px;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .bullet-orange-check::before {
+            content: "➔";
+            color: #ec5b24;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .app-right-layout {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .rating-pill {
+            text-align: right;
+        }
+
+        .stars-row {
+            color: #eab308;
+            font-size: 12px;
+        }
+
+        .download-store-badges {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .store-btn-mock {
+            background-color: #000000;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            width: 120px;
+        }
+
+        .qr-code-frame {
+            width: 75px;
+            height: 75px;
+            border: 1px solid #cbd5e1;
+            background-color: #ffffff;
+            padding: 4px;
+        }
+
+        .qr-box-mock {
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, #000 25%, transparent 25%), linear-gradient(-45deg, #000 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #000 75%), linear-gradient(-45deg, transparent 75%, #000 75%);
+            background-size: 8px 8px;
+        }
+
+        /* STORIES NEWS GRID */
+        .stories-carousel-layout {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+        }
+
+        .story-card-frame {
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+
+        .story-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 60%);
+            padding: 12px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .story-card-overlay p {
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        /* --- PAGE 5: SEO EDITORIAL BLOCK & LINK MATRIX DIRECTORY --- */
+        .seo-editorial-block {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .seo-editorial-block h2 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .seo-editorial-block p {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .read-more-action {
+            color: #0284c7;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* FOOTER INDEX MATRIX SUB-SYSTEM */
+        .footer-index-matrix-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 25px;
+        }
+
+        .index-tabs-strip {
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 15px;
+        }
+
+        .index-tab-header {
+            font-size: 13px;
+            font-weight: 600;
+            color: #64748b;
+            cursor: pointer;
+            padding-bottom: 8px;
+        }
+
+        .index-tab-header.active {
+            color: #044cb4;
+            border-bottom: 2px solid #044cb4;
+        }
+
+        .links-matrix-columns {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+
+        .matrix-column-links-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .matrix-column-links-list li a {
+            font-size: 12px;
+            color: #475569;
+            text-decoration: none;
+        }
+
+        .matrix-column-links-list li a:hover {
+            color: #ec5b24;
+        }
+
+        /* IN-LINE DICTIONARY TAGS CHIPS ROW */
+        .inline-chips-directory-row {
+            border-top: 1px solid #f1f5f9;
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+
+        .inline-chips-directory-row h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        .chips-inline-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .chips-inline-flex a {
+            font-size: 11px;
+            color: #64748b;
+            text-decoration: none;
+        }
+
+        .chips-inline-flex a::after {
+            content: " •";
+            color: #cbd5e1;
+            margin-left: 6px;
+        }
+
+        /* BASEMENT FOOTER SOCIAL BRAND REGULATION STRIP */
+        .basement-footer-strip {
+            background-color: #f8fafc;
+            border-top: 1px solid #e2e8f0;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .basement-flex-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .legal-copyright-row {
+            font-size: 11px;
+            color: #94a3b8;
+        }
+
+        .legal-copyright-row a {
+            color: #64748b;
+            text-decoration: none;
+            margin: 0 4px;
+        }
+
+        .social-media-channels {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-circle-icon {
+            width: 28px;
+            height: 28px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #475569;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="integrated-top-banner">
+        <div class="container">
+            <div class="flex-row-center">
+                <div class="flex-col-center">
+                    <div class="banner-heading-box">
+                        <h4 class="banner-h4"> 
+                            <span class="banner-span">Flat 19% Off on Flights &amp; Flat 91% Off on Hotels</span>
+                        </h4>
+                    </div>
+                    <div class="timer-row">
+                        <div>
+                            <p class="timer-title">Birthday Travel Sale - </p>
+                        </div>
+                        <div class="timer-wrapper" role="timer" aria-label="Sale countdown timer">
+                            <span class="ends-in-txt">Ends in:</span>
+                            <div class="countdown-digits-container">
+                                <div class="timer-box">
+                                    <div class="flashSale_bottomBoxTimer__JFN3D"></div>
+                                    <div class="flashSale_upperBoxLine__RHrz0"></div>
+                                    <h5>02</h5>
+                                    <p>hr</p>
+                                    <div class="flashSale_topBoxTimer__7CPrn"></div>
+                                </div>
+                                <div class="timer-box">
+                                    <div class="flashSale_bottomBoxTimer__JFN3D"></div>
+                                    <div class="flashSale_upperBoxLine__RHrz0"></div>
+                                    <h5>00</h5>
+                                    <p>min</p>
+                                    <div class="flashSale_topBoxTimer__7CPrn"></div>
+                                </div>
+                                <div class="timer-box">
+                                    <div class="flashSale_bottomBoxTimer__JFN3D"></div>
+                                    <div class="flashSale_upperBoxLine__RHrz0"></div>
+                                    <h5>51</h5>
+                                    <p>sec</p>
+                                    <div class="flashSale_topBoxTimer__7CPrn"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img alt="sale banner" class="banner-img" src="https://images.ixigo.com/image/upload/978d4d8aafbda4484255a943f600ff88-bmmmu.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="wavy-strip"></div>
+
+    <div class="main-navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo-box">
+                <div class="logo-img">ixigo</div>
+            </a>
+            <div class="nav-right-links">
+                <a href="#" class="nav-link"><span>🏷️</span> Offers</a>
+                <a href="#" class="nav-link"><span>💬</span> Customer Service</a>
+                <a href="#" class="nav-link nav-link-user">
+                    <span class="user-icon">👤</span> Log in/Sign up
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        
+        <div class="category-tabs-row">
+            <div class="tabs-left">
+                <button class="cat-tab active">✈️ Flights</button>
+                <button class="cat-tab"><span class="badge">Flat 91% Off</span>🏨 Hotels</button>
+                <button class="cat-tab">🚂 Trains</button>
+                <button class="cat-tab">🚌 Buses</button>
+            </div>
+            <div class="tabs-right-text">Book International and Domestic Flights</div>
+        </div>
+
+        <div class="search-panel">
+            <div class="trip-type-row">
+                <div class="radio-toggle-group">
+                    <button class="btn-toggle active">One Way</button>
+                    <button class="btn-toggle">Round Trip</button>
+                </div>
+                <div class="best-offer-indicator"><span class="green-dot"></span> Best Flight Offers</div>
+            </div>
+
+            <div class="search-inputs-grid">
+                <div class="input-block"><span>From</span><input type="text" value="New Delhi"></div>
+                <div class="input-block"><span>To</span><input type="text" placeholder="Where to?"></div>
+                <div class="input-block"><span>Departure</span><input type="text" value="Sat, 06 Jun" readonly></div>
+                <div class="input-block"><span>Return</span><input type="text" placeholder="Add Date" readonly></div>
+                <div class="input-block"><span>Travellers & Class</span><input type="text" value="1 Traveller, Economy" readonly></div>
+                <button class="btn-search-submit">Search ❯</button>
+            </div>
+
+            <div class="special-fares-row">
+                <span>Special Fares (Optional) :</span>
+                <button class="fare-chip">Student</button>
+                <button class="fare-chip">Senior Citizen</button>
+                <button class="fare-chip">Armed Forces</button>
+            </div>
+
+            <div class="cancellation-bar">
+                <div class="cancel-left">
+                    <input type="checkbox" id="always-opt" style="width:16px; height:16px;"><label style="font-weight:600;" for="always-opt">Always opt for Free Cancellation</label>
+                    <div class="cancel-features">
+                        <span>• ₹0 cancellation fee</span>
+                        <span>• No-questions-asked instant refunds</span>
+                        <span>• Priority customer service</span>
+                    </div>
+                </div>
+                <div class="shield-gold-icon"></div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <h2 class="main-heading" style="margin-bottom:15px;">Do More With ixigo</h2>
+            <div class="features-grid">
+                <div class="feature-card"><span class="mini-badge bg-orange">Pro</span><div class="icon-circle" style="border-color:#ff7a00; color:#ff7a00;">📈</div><p>Flight Tracker</p></div>
+                <div class="feature-card"><span class="mini-badge bg-green">Free</span><div class="icon-circle" style="border-color:#22c55e; color:#22c55e;">💳</div><p>Credit Card</p></div>
+                <div class="feature-card"><div class="icon-circle" style="border-color:#3b82f6; color:#3b82f6;">🛂</div><p>Book Visa</p></div>
+                <div class="feature-card"><div class="icon-circle" style="border-color:#6366f1; color:#6366f1;">👥</div><p>Group Booking</p></div>
+                <div class="feature-card"><div class="icon-circle" style="border-color:#ec4899; color:#ec4899;">🗺️</div><p>Plan</p></div>
+                <div class="feature-card"><div class="icon-circle" style="border-color:#06b6d4; color:#06b6d4;">🔔</div><p>Fare Alerts</p></div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <div class="section-header-flex">
+                <h2 class="main-heading">Offers For You</h2>
+                <div class="filter-chips-group">
+                    <button class="chip-btn blue-active">Flights</button>
+                    <button class="chip-btn">Hotels</button>
+                    <button class="chip-btn">Bank Offers</button>
+                    <button class="chip-btn">Trains</button>
+                    <a href="#" class="view-all-link">View All ❯</a>
+                </div>
+            </div>
+            
+            <div class="offers-display-container">
+                <div class="promo-card">
+                    <img class="brand-logo" src="https://images.ixigo.com/image/upload/f1ba9a349bc98124efb4aa3ff6aee50b-lzwuo.png" alt="HSBC">
+                    <div>
+                        <h3 class="promo-main-txt">Up to 12% Off</h3>
+                        <p class="promo-sub-txt">on Flights with HSBC Credit Cards + Interest Free EMI</p>
+                    </div>
+                    <div class="promo-footer-decoration"><div class="card-graphic-placeholder"></div></div>
+                </div>
+                <div class="promo-card">
+                    <img class="brand-logo" src="https://images.ixigo.com/image/upload/f1ba9a349bc98124efb4aa3ff6aee50b-lzwuo.png" alt="HDFC">
+                    <div>
+                        <h3 class="promo-main-txt">Get up to ₹2,000 Off</h3>
+                        <p class="promo-sub-txt">on Domestic Flights with HDFC Bank Credit Card + Interest Free EMI</p>
+                    </div>
+                    <div class="promo-footer-decoration"><div class="card-graphic-placeholder"></div></div>
+                </div>
+                <div class="promo-card">
+                    <img class="brand-logo" src="https://images.ixigo.com/image/upload/f1ba9a349bc98124efb4aa3ff6aee50b-lzwuo.png" alt="SBI">
+                    <div>
+                        <h3 class="promo-main-txt">Flat 12% Off</h3>
+                        <p class="promo-sub-txt">on Domestic Flights with SBI VISA Debit Card</p>
+                    </div>
+                    <div class="promo-footer-decoration"><div class="card-graphic-placeholder"></div></div>
+                </div>
+                <div class="promo-card">
+                    <img class="brand-logo" src="https://images.ixigo.com/image/upload/f1ba9a349bc98124efb4aa3ff6aee50b-lzwuo.png" alt="ICICI">
+                    <div>
+                        <h3 class="promo-main-txt">Flat 12% Off</h3>
+                        <p class="promo-sub-txt">on Flights with ICICI Bank Credit Card EMI</p>
+                    </div>
+                    <div class="promo-footer-decoration"><div class="card-graphic-placeholder"></div></div>
+                    <div class="arrow-slider-btn">❯</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <h2 class="main-heading" style="margin-bottom:15px;">Why Book With ixigo?</h2>
+            <div class="why-book-grid">
+                <div class="why-card why-1">
+                    <div class="why-icon">🛡️</div>
+                    <div class="why-info"><h4>Instant & full refunds</h4><p>with Assured cancellation protection</p></div>
+                </div>
+                <div class="why-card why-2">
+                    <div class="why-icon">🩺</div>
+                    <div class="why-info"><h4>Travel Stress-Free</h4><p>with premium integrated Travel Insurance</p></div>
+                </div>
+                <div class="why-card why-3">
+                    <div class="why-icon">🔔</div>
+                    <div class="why-info"><h4>Save up to 40%</h4><p>with automated intelligent fare alerts</p></div>
+                </div>
+                <div class="why-card why-4">
+                    <div class="why-icon">📋</div>
+                    <div class="why-info"><h4>Track flight delays</h4><p>boarding gate changes & baggage belts</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <div class="cheapest-fares-box">
+                <h3 class="main-heading" style="margin-bottom:15px;">Cheapest Fares From <span class="dropdown-inline-selector">New Delhi ▾</span></h3>
+                <div class="fares-cards-grid">
+                    <div class="fare-destination-card">
+                        <div class="dest-img-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                        <div class="dest-details-padding">
+                            <h4 class="dest-name">Bathinda, <span class="dest-state">Punjab</span></h4>
+                            <p class="dest-date">Tue, 16 Jun</p>
+                            <div class="dest-pricing-row"><span class="price-txt">₹1,680 onwards</span><button class="btn-book-action">Book Flight</button></div>
+                        </div>
+                    </div>
+                    <div class="fare-destination-card">
+                        <div class="dest-img-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                        <div class="dest-details-padding">
+                            <h4 class="dest-name">Hissar, <span class="dest-state">Haryana</span></h4>
+                            <p class="dest-date">Sun, 21 Jun</p>
+                            <div class="dest-pricing-row"><span class="price-txt">₹2,133 onwards</span><button class="btn-book-action">Book Flight</button></div>
+                        </div>
+                    </div>
+                    <div class="fare-destination-card">
+                        <div class="dest-img-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                        <div class="dest-details-padding">
+                            <h4 class="dest-name">Gwalior, <span class="dest-state">Madhya Pradesh</span></h4>
+                            <p class="dest-date">Wed, 17 Jun</p>
+                            <div class="dest-pricing-row"><span class="price-txt">₹2,274 onwards</span><button class="btn-book-action">Book Flight</button></div>
+                        </div>
+                    </div>
+                    <div class="fare-destination-card">
+                        <div class="dest-img-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                        <div class="dest-details-padding">
+                            <h4 class="dest-name">Jaipur, <span class="dest-state">Rajasthan</span></h4>
+                            <p class="dest-date">Sun, 09 Aug</p>
+                            <div class="dest-pricing-row"><span class="price-txt">₹2,696 onwards</span><button class="btn-book-action">Book Flight</button></div>
+                        </div>
+                    </div>
+                    <div class="fare-destination-card">
+                        <div class="dest-img-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                        <div class="dest-details-padding">
+                            <h4 class="dest-name">Ayodhya, <span class="dest-state">Uttar Pradesh</span></h4>
+                            <p class="dest-date">Sat, 15 Aug</p>
+                            <div class="dest-pricing-row"><span class="price-txt">₹2,798 onwards</span><button class="btn-book-action">Book Flight</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <h2 class="main-heading" style="margin-bottom:15px;">Popular Flight Routes</h2>
+            <div class="routes-grid-layout">
+                <div class="route-strip-card">
+                    <div class="route-thumbnail" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                    <div class="route-data"><h4>Mumbai Flights</h4><p>To: Goa • Delhi • Bangalore • Ahmedabad</p></div>
+                </div>
+                <div class="route-strip-card">
+                    <div class="route-thumbnail" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                    <div class="route-data"><h4>Delhi Flights</h4><p>To: Mumbai • Goa • Bangalore • Pune</p></div>
+                </div>
+                <div class="route-strip-card">
+                    <div class="route-thumbnail" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');"></div>
+                    <div class="route-data"><h4>Kolkata Flights</h4><p>To: Mumbai • Delhi • Bangalore • Bagdogra</p></div>
+                </div>
+            </div>
+            <div class="center-link-container">
+                <a href="#" class="expand-view-link">View More ▾</a>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <h2 class="main-heading" style="margin-bottom:15px;">Popular Domestic Airlines</h2>
+            <div class="airlines-container-card">
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#1e3a8a;"></div><span>IndiGo</span></div>
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#b91c1c;"></div><span>Air India</span></div>
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#ea580c;"></div><span>Air India Express</span></div>
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#4338ca;"></div><span>Akasa Air</span></div>
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#db2777;"></div><span>Alliance Air</span></div>
+                <div class="airline-brand-item"><div class="airline-logo-mock" style="background-color:#dc2626;"></div><span>SpiceJet</span></div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <div class="app-download-banner">
+                <div class="app-left-layout">
+                    <div class="app-orange-logo">✈</div>
+                    <div class="app-bullet-info">
+                        <h3>Download the App</h3>
+                        <ul>
+                            <li class="app-bullet-info li bullet-orange-check">Get up to 25% Off on App (Code: GETAPP)</li>
+                            <li class="app-bullet-info li bullet-orange-check">Auto Web Checkin with Boarding Pass.</li>
+                            <li class="app-bullet-info li bullet-orange-check">Track Flight Status, Boarding Gate, Baggage Belt & more!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="app-right-layout">
+                    <div class="rating-pill">
+                        <strong style="font-size:20px; color:#1e293b;">4.8</strong>
+                        <div class="stars-row">★★★★★</div>
+                    </div>
+                    <div class="download-store-badges">
+                        <div class="store-btn-mock">🤖 Google Play</div>
+                        <div class="store-btn-mock">🍏 App Store</div>
+                    </div>
+                    <div class="qr-code-frame"><div class="qr-box-mock"></div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-margin">
+            <h2 class="main-heading" style="margin-bottom:15px;">News And Travel Stories</h2>
+            <div class="stories-carousel-layout">
+                <div class="story-card-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');">
+                    <div class="story-card-overlay"><p>Skip Airport Queues Like a Pro With This Little-Known Hack</p></div>
+                </div>
+                <div class="story-card-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');">
+                    <div class="story-card-overlay"><p>Top 15 Places to Visit in May in India</p></div>
+                </div>
+                <div class="story-card-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');">
+                    <div class="story-card-overlay"><p>10 Best Places to Visit in February in India</p></div>
+                </div>
+                <div class="story-card-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');">
+                    <div class="story-card-overlay"><p>Green Getaways: How Odisha's Eco Retreats Redefine Responsible Travel</p></div>
+                </div>
+                <div class="story-card-frame" style="background-image:url('https://images.ixigo.com/image/upload/a50e4b85775c970425a940430f00ff88-zwwuo.jpg');">
+                    <div class="story-card-overlay"><p>11 Perfect Places to Bring the New Year in India</p></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-margin seo-editorial-block">
+            <h2>About ixigo</h2>
+            <p>
+                Launched in 2007, ixigo is a technology company focused on empowering Indian travellers to plan, book and manage their trips across rail, air, buses and hotels. We assist travellers in making smarter travel decisions by leveraging artificial intelligence, machine learning, and data science led innovations on our OTA platforms, comprising our websites and mobile applications. Our vision is to become the most customer-centric travel company, by offering the best customer experience to our users... <span class="read-more-action">Read more</span>
+            </p>
+        </div>
+
+        <div class="footer-index-matrix-card">
+            <div class="index-tabs-strip">
+                <div class="index-tab-header active">Popular Flight Routes</div>
+                <div class="index-tab-header">Top Flight Routes</div>
+                <div class="index-tab-header">Popular Train Routes</div>
+                <div class="index-tab-header">Top Train Routes</div>
+                <div class="index-tab-header">Top Hotel Destinations</div>
+                <div class="index-tab-header">Plan Your Trip</div>
+            </div>
+            
+            <div class="links-matrix-columns">
+                <ul class="matrix-column-links-list">
+                    <li><a href="#">New Delhi to Goa Flights</a></li>
+                    <li><a href="#">Mumbai to Dubai Flights</a></li>
+                    <li><a href="#">Hyderabad to Purnea Flights</a></li>
+                    <li><a href="#">Abu Dhabi to Gorakhpur Flights</a></li>
+                </ul>
+                <ul class="matrix-column-links-list">
+                    <li><a href="#">Mumbai to Kolkata Flights</a></li>
+                    <li><a href="#">New Delhi to Hyderabad Flights</a></li>
+                    <li><a href="#">Darbhanga to Mumbai Flights</a></li>
+                    <li><a href="#">Kolkata to Dubai Flights</a></li>
+                </ul>
+                <ul class="matrix-column-links-list">
+                    <li><a href="#">New Delhi to Dubai Flights</a></li>
+                    <li><a href="#">Mumbai to Varanasi Flights</a></li>
+                    <li><a href="#">Doha to Gorakhpur Flights</a></li>
+                    <li><a href="#">Mumbai to Bali Flights</a></li>
+                </ul>
+                <ul class="matrix-column-links-list">
+                    <li><a href="#">New Delhi to Kolkata Flights</a></li>
+                    <li><a href="#">Mumbai to Goa Flights</a></li>
+                    <li><a href="#">Bengaluru to Nagpur Flights</a></li>
+                    <li><a href="#">Doha to Patna Flights</a></li>
+                </ul>
+                <ul class="matrix-column-links-list">
+                    <li><a href="#">Bengaluru to Kolkata Flights</a></li>
+                    <li><a href="#">Pune to Lucknow Flights</a></li>
+                    <li><a href="#">Bhubaneswar to Mumbai Flights</a></li>
+                    <li><a href="#">Goa to Hyderabad Flights</a></li>
+                </ul>
+            </div>
+
+            <div class="inline-chips-directory-row">
+                <h4>Important Links</h4>
+                <div class="chips-inline-flex">
+                    <a href="#">IRCTC Trains</a><a href="#">Tatkal Railway Reservation</a><a href="#">PNR Status</a>
+                    <a href="#">Train Running Status</a><a href="#">Train Seat Availability</a><a href="#">Platform Locator</a>
+                    <a href="#">Vande Bharat Express</a><a href="#">IRCTC Cancellation Charges</a><a href="#">Flight Booking</a>
+                    <a href="#">International Flights</a><a href="#">Armed Forces Flight Booking</a><a href="#">Airport Cab Booking</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="basement-footer-strip">
+        <div class="container basement-flex-container">
+            <div class="legal-copyright-row">
+                <span>© 2026 Le Travenues Technology Ltd. India. All brands are trademarks of their respective owners.</span>
+                <a href="#">Privacy</a>•<a href="#">Terms of Use</a>•<a href="#">Careers</a>•<a href="#">Customer Service</a>
+            </div>
+            <div class="social-media-channels">
+                <a href="#" class="social-circle-icon">f</a>
+                <a href="#" class="social-circle-icon">x</a>
+                <a href="#" class="social-circle-icon">i</a>
+                <a href="#" class="social-circle-icon">in</a>
+                <a href="#" class="social-circle-icon">y</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
