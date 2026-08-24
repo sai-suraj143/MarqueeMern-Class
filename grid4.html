@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Design Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Root & Resets --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: rgba(0,0,0,0.2); /* Dark backdrop */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- Dashboard Container --- */
+        .dashboard {
+            width: 100%;
+            max-width: 1100px;
+            background-color: #271c52; /* Main board dark purple */
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            
+            /* CSS Grid Setup */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-auto-rows: minmax(140px, auto);
+            gap: 24px;
+        }
+
+        /* --- Shared Card Styles --- */
+        .card {
+            background-color: #3f337a; /* Standard card purple */
+            border-radius: 24px;
+            padding: 24px;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* --- Specific Card Layout Tweaks --- */
+        .card-apps {
+            grid-column: 1 / 2;
+        }
+
+        .card-likes {
+            grid-column: 2 / 3;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-viewers {
+            grid-column: 3 / 4;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-users {
+            grid-column: 1 / 2;
+        }
+
+        .card-design {
+            grid-column: 2 / 3;
+            background: repeating-linear-gradient(
+                45deg,
+                #7c3aed,
+                #7c3aed 10px,
+                #6d28d9 10px,
+                #6d28d9 20px
+            ); /* Recreates the textured background pattern */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-subscribers {
+            grid-column: 3 / 4;
+            grid-row: 2 / 4; /* Spans across two rows vertically */
+            background-color: #e2e8f0; /* White/Light gray card */
+            color: #1e1b4b;
+        }
+
+        .card-promo {
+            grid-column: 1 / 3;
+            min-height: 180px;
+            justify-content: flex-start;
+        }
+
+        /* --- Typography & Elements --- */
+        /* Top Left Apps Card */
+        .apps-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .apps-title {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        .btn-launch {
+            background-color: #5544a3;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            text-decoration: none;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .apps-icons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .icon-box {
+            width: 44px;
+            height: 44px;
+            background-color: #5544a3;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Metrics styling */
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            color: #cbd5e1;
+            margin-top: 8px;
+            font-weight: 400;
+        }
+
+        /* Live Tag */
+        .live-tag {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background-color: #ef4444;
+            color: white;
+            font-size: 0.6rem;
+            font-weight: 800;
+            padding: 2px 6px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Active Users Header Row */
+        .users-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .label-main {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .label-sub {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* Center Design Typography */
+        .design-text {
+            font-family: 'Georgia', serif; /* Serif styling to match screenshot */
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Promo bottom Text */
+        .promo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            max-width: 80%;
+            line-height: 1.3;
+        }
+
+        /* White Subscribers Card Details */
+        .subscribers-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .sub-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #475569;
+        }
+
+        .sub-growth {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* SVGs for Sparkline graph replica */
+        .sparkline-container {
+            margin: auto 0;
+            width: 100%;
+        }
+
+        .sub-value {
+            font-size: 4.8rem;
+            font-weight: 700;
+            color: #0f172a;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard">
+        
+        <div class="card card-apps">
+            <div class="apps-header">
+                <span class="apps-title">A complete family of Apps</span>
+                <button class="btn-launch">Launch Apps &rarr;</button>
+            </div>
+            <div class="apps-icons">
+                <div class="icon-box">in</div>
+                <div class="icon-box">▶</div>
+                <div class="icon-box">🐦</div>
+                <div class="icon-box">♪</div>
+                <div class="icon-box">f</div>
+            </div>
+        </div>
+
+        <div class="card card-likes">
+            <div class="metric-value">25K</div>
+            <div class="metric-label">Weekly Likes</div>
+        </div>
+
+        <div class="card card-viewers">
+            <span class="live-tag">● LIVE</span>
+            <div class="metric-value">50K</div>
+            <div class="metric-label">Weekly Viewers</div>
+        </div>
+
+        <div class="card card-users">
+            <div class="users-header">
+                <span class="label-main">Active Users</span>
+                <span class="label-sub">+154</span>
+            </div>
+            <div class="metric-value" style="margin-top: 20px;">1,538</div>
+        </div>
+
+        <div class="card card-design">
+            <div class="design-text">DESIGN</div>
+        </div>
+
+        <div class="card card-subscribers">
+            <div class="subscribers-header">
+                <span class="sub-label">Total Subscribers</span>
+                <span class="sub-growth">+7%</span>
+            </div>
+            
+            <div class="sparkline-container">
+                <svg viewBox="0 0 300 100" width="100%" height="70" fill="none" stroke="#cbd5e1" stroke-width="3">
+                    <path d="M 0 60 Q 40 70 60 40 T 120 60 T 185 30 T 240 50 T 300 20" stroke-linecap="round"/>
+                </svg>
+            </div>
+            
+            <div class="sub-value">100K</div>
+        </div>
+
+        <div class="card card-promo">
+            <div class="promo-text">
+                A place to learn UI Design & Web Design.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
