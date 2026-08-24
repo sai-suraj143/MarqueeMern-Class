@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container{
+            display: grid;
+            grid-template-rows: 200px 200px;
+            grid-template-columns: 200px 200px;
+            background: #000;
+            height: 400px;
+            width: 400px;
+            background-size: cover;
+            transition: all 2s ease;
+            background-image: url(https://images.unsplash.com/photo-1782105208018-b4b9181d8ddc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyN3x8fGVufDB8fHx8fA%3D%3D);
+        }
+        .box{
+            border: 1px solid black;
+            transition: all 2s ease;
+        }
+        .box1{
+           background-color: lightblue; 
+        }
+        .container:hover .box1{
+            transform: rotate(90deg);
+            transform-origin: top left;
+            transition: all 2s ease;
+            
+        }
+        .box2{
+           background-color: lightblue; 
+        }
+        .container:hover .box2{
+            transform: rotate(-90deg);
+            transform-origin: top right;
+            transition: all 2s ease;
+            
+        }
+        .box3{
+           background-color: lightblue; 
+        }
+        .container:hover .box3{
+            transform: rotate(-90deg);
+            transform-origin: bottom left;
+            transition: all 2s ease;
+            
+        }
+        .box4{
+           background-color: lightblue; 
+        }
+        .container:hover .box4{
+            transform: rotate(90deg);
+            transform-origin: bottom right;
+            transition: all 2s ease;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+    </div>
+</body>
+</html>
